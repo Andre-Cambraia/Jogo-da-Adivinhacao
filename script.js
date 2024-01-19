@@ -90,7 +90,7 @@ document.querySelector('.again').addEventListener('click', function () {
   lifes = 5;
   secretNumber = Math.trunc(Math.random() * 100) + 1;
 
-  displayMessage('Tente adivinhar! Digite um número no espaço ao lado...');
+  displayMessage('Tente adivinhar! Digite um número no espaço ao lado e aperte o botão...');
   displayScore('-');
   displayNumber('?');
   valueGuess('');
