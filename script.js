@@ -12,7 +12,7 @@ console.log(document.querySelector('.guess').value);
 */
 
 // Principais variáveis
-let secretNumber = Math.trunc(Math.random() * 100) + 1;
+let secretNumber = Math.trunc(Math.random() * 50) + 1;
 let score = 0;
 let highscore = 0;
 let lifes = 5;
@@ -43,7 +43,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
   // Quando não tem input
   if (!guess) {
-    displayMessage('⛔ No number!');
+    displayMessage('⛔ Valor inválido! Digite novamente!');
 
     // Quando o jogador ganha
   } else if (guess === secretNumber) {
@@ -67,14 +67,16 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess !== secretNumber) {
     if (score < 4) {
       displayMessage(
-        guess > secretNumber ? '👇 Número menor!' : '👆 Número maior!'
+        guess > secretNumber
+          ? '👇 Número secreto é menor!'
+          : '👆 Número secreto é maior!'
       );
       score++;
       lifes--;
       displayScore(score);
       displayLifes(lifes);
     } else {
-      displayNumber('X');
+      displayNumber(secretNumber);
       displayMessage('☠️ Você perdeu!');
       displayScore(5);
       displayLifes(0);
@@ -88,7 +90,7 @@ document.querySelector('.check').addEventListener('click', function () {
 document.querySelector('.again').addEventListener('click', function () {
   score = 0;
   lifes = 5;
-  secretNumber = Math.trunc(Math.random() * 100) + 1;
+  secretNumber = Math.trunc(Math.random() * 50) + 1;
 
   displayMessage(
     'Tente adivinhar! Digite um número no espaço ao lado e aperte o botão...'
