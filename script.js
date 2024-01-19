@@ -67,7 +67,7 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess !== secretNumber) {
     if (score < 4) {
       displayMessage(
-        guess > secretNumber ? '📈 Muito alto!' : '📉 Muito baixo!'
+        guess > secretNumber ? '📈 Número maior!' : '📉 Número menor!'
       );
       score++;
       lifes--;
