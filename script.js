@@ -57,17 +57,17 @@ document.querySelector('.check').addEventListener('click', function () {
     // Registrando o RECORDE quando ganhar
     if (highscore === 0) {
       highscore = score;
-      displayHighscore(score);
+      displayHighscore(score + ' tentativas');
     } else if (score < highscore) {
       highscore = score;
-      displayHighscore(highscore);
+      displayHighscore(highscore + ' tentativas');
     }
 
     // Quando o jogador erra
   } else if (guess !== secretNumber) {
     if (score < 4) {
       displayMessage(
-        guess > secretNumber ? '📈 Número maior!' : '📉 Número menor!'
+        guess > secretNumber ? '👇 Número menor!' : '👆 Número maior!'
       );
       score++;
       lifes--;
@@ -76,7 +76,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       displayNumber('X');
       displayMessage('☠️ Você perdeu!');
-      displayScore(10);
+      displayScore(5);
       displayLifes(0);
       document.querySelector('body').style.backgroundColor = '#ff0000';
       document.querySelector('h1').textContent = 'GAME OVER';
@@ -90,7 +90,9 @@ document.querySelector('.again').addEventListener('click', function () {
   lifes = 5;
   secretNumber = Math.trunc(Math.random() * 100) + 1;
 
-  displayMessage('Tente adivinhar! Digite um número no espaço ao lado e aperte o botão...');
+  displayMessage(
+    'Tente adivinhar! Digite um número no espaço ao lado e aperte o botão...'
+  );
   displayScore('-');
   displayNumber('?');
   valueGuess('');
